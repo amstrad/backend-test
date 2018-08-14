@@ -1,31 +1,78 @@
-## Video Share
+![alt text](laravelparser/screenshot.gif)
 
-We buy videos from several sources.  Each source provides its content to us in a different format.  Write a command line script to import the videos.    
 
-Input/output should be something like this:
+
+Test at:
+https://github.com/CMProductions/backend-test
+
+
+## Server Requirements (Laravel 5.6)
+https://laravel.com/docs/5.6/installation
+- PHP >= **7.1.3**
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Mbstring PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+- Ctype PHP Extension
+- JSON PHP Extension
+- Composer
+
+## Install
+The test was done entirely on Laravel 5.6. Please check laravel install Docs and make sure all requirements apply to run the test at your server/docker. 
+
+`git clone https://github.com/amstrad/backend-test backend-test`
+
+Move into the new folder:
+`cd backendtest/laravelparser`
+
+Install Deps:  
+
+`composer install`
+
+`npm install`
+
+
+
+###Execute  script
+
+Move into "laravelparser" folder and run:
+
+**`php artisan import`**
+
+or with params
+
+**`php artisan import glorf`**
+
+
+####Tweaking
+
+Import files can be added or removed in the array $sources at ImportFeed Controller
  
-````bash
-$ import glorf
+    
+    private $sources = array (
+        'flub'      => 'yaml',
+        'glorf'     => 'json',
+       //filename   =>  type
+    );
 
-importing: "science experiment goes wrong"; Url: http://glorf.com/videos/3; Tags: microwave,cats,peanutbutter
-importing: "amazing dog can talk"; Url: http://glorf.com/videos/4; Tags: dog,amazing
-````
+For the test, files are placed at "backend-test/laravelparser/storage/public/feed-exports"
 
-Considerations:
 
-- Currently, we are importing videos from 2 sites: flub, and glorf.  They send us their weekly feed via email.  This weeks files are in /feed-exports
-- We plan to add a third provider soon who will make their feed available via json output which it will make available via FTP (you don't need to implement this, just keep it mind)
-- Do not implement any data persistence code, just provide some dummy classes that echo what they are doing.  Keep in mind that the company is planning to switch from MySQL to Cassandra in 4 months.
-- The focus here should be on design, more than implementation.  We are less interested in seeing that this works than in seeing how you approach the problem.
-- Please provide at least some unit tests (it is not required to write them for every class). Functional tests are also a plus.
-- Please provide a short summary as SUMMARY.md detailing anything you think is relevant, for example:
-  - Installation steps
-  - How to run your code / tests
-  - Where to find your code
-  - Was it your first time writing a unit test, using a particular framework, etc?
-  - What would you have done differently if you had had more time
-  - Etc.
 
-* * * 
+###Unit Testing:
 
-Please email your completed test to me as a git patch (https://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/).
+A simple function to check if import files are reachable/exist can be launched with
+
+`./vendor/bin/phpunit` in project root
+
+ 
+
+##### Files to watch:
+
+- backend-test/laravelparser/app/Console/Commands/ParseFeed.php <-  Artisan Import task
+- backend-test/laravelparser/app/Http/Controllers/ImportFeed.php <- Controller logic
+- /Users/diego/sites/backend-test/laravelparser/tests/Unit/FeedTest.php <- Unit testing logic here
+
+
+
