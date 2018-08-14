@@ -76,3 +76,12 @@ A simple function to check if import files are reachable/exist can be launched w
 
 
 
+ TO-DO and improvements (in case of  more time)
+ - proper Validator
+ - add tasks into queue system
+ - FTP Downloader+Parser
+ - Sql/NoSql, models Logic
+ - Refactoring here and there.
+ - Mail admin if file is not correct or there´s errors
+ - Recode into Node.js or Go ? (free resources if this is a prod web server).
+
