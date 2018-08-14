@@ -24,7 +24,7 @@ The test was done entirely on Laravel 5.6. Please check laravel install Docs and
 `git clone https://github.com/amstrad/backend-test backend-test`
 
 Move into the new folder:
-`cd backendtest/laravelparser`
+`cd backend-test/laravelparser`
 
 Install Deps:  
 
