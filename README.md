@@ -34,7 +34,7 @@ Install Deps:
 
 
 
-###Execute  script
+### Execute  script
 
 Move into "laravelparser" folder and run:
 
@@ -45,7 +45,7 @@ or with params
 **`php artisan import glorf`**
 
 
-####Tweaking
+#### Tweaking
 
 Import files can be added or removed in the array $sources at ImportFeed Controller
  
@@ -60,7 +60,7 @@ For the test, files are placed at "backend-test/laravelparser/storage/public/fee
 
 
 
-###Unit Testing:
+### Unit Testing:
 
 A simple function to check if import files are reachable/exist can be launched with
 
